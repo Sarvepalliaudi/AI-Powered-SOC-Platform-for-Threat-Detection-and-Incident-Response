@@ -1,10 +1,20 @@
 const mongoose = require('mongoose');
+const { MongoMemoryServer } = require('mongodb-memory-server');
+
+let memoryServer;
 
 const connectDB = async () => {
-  const uri = process.env.MONGODB_URI;
+  let uri = process.env.MONGODB_URI;
+
   if (!uri) {
-    console.error('MongoDB connection error: MONGODB_URI is not set in backend/.env');
-    process.exit(1);
+    if (process.env.NODE_ENV === 'production') {
+      console.error('MongoDB connection error: MONGODB_URI is not set in backend/.env');
+      process.exit(1);
+    }
+
+    console.warn('MONGODB_URI not set: starting an in-memory MongoDB instance for development.');
+    memoryServer = await MongoMemoryServer.create();
+    uri = memoryServer.getUri();
   }
 
   try {
@@ -27,5 +37,22 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
+const stopMemoryServer = async () => {
+  if (memoryServer) {
+    await memoryServer.stop();
+    memoryServer = null;
+  }
+};
+
+process.on('SIGINT', async () => {
+  await stopMemoryServer();
+  process.exit(0);
+});
+
+process.on('SIGTERM', async () => {
+  await stopMemoryServer();
+  process.exit(0);
+});
 
 module.exports = connectDB;
