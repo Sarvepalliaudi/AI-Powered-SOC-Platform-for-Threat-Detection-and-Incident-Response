@@ -1,0 +1,47 @@
+# =========================
+# SECRETS - NEVER COMMIT
+# =========================
+.env
+.env.local
+.env.development
+.env.production
+.env.*.local
+backend/.env
+frontend/.env
+
+# Keep templates (safe to commit)
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+
+# =========================
+# Dependencies
+# =========================
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# =========================
+# Build & generated files
+# =========================
+frontend/dist/
+backend/reports/
+*.log
+npm-debug.log*
+
+# =========================
+# OS & IDE
+# =========================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# =========================
+# Uploads & temp
+# =========================
+uploads/
+tmp/
+temp/

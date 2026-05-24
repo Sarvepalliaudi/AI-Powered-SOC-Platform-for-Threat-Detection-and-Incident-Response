@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <path d="M50 5L90 25V55C90 75 70 90 50 95C30 90 10 75 10 55V25L50 5Z" fill="#0a0e17" stroke="#00ff88" stroke-width="3"/>
+  <path d="M50 20L75 35V55C75 68 62 78 50 82C38 78 25 68 25 55V35L50 20Z" fill="#00ff88" fill-opacity="0.2"/>
+  <text x="50" y="58" text-anchor="middle" fill="#00ff88" font-family="monospace" font-size="24" font-weight="bold">S</text>
+</svg>

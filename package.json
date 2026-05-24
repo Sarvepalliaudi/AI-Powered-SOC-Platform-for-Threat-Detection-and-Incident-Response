@@ -1,0 +1,16 @@
+{
+  "name": "ai-soc-platform",
+  "version": "1.0.0",
+  "description": "AI-Powered SOC Platform for Threat Detection and Incident Response",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "seed": "npm run seed --prefix backend",
+    "start:backend": "npm start --prefix backend",
+    "build:frontend": "npm run build --prefix frontend"
+  },
+  "keywords": ["soc", "cybersecurity", "threat-detection"],
+  "author": "NA-042026 – Group A"
+}
